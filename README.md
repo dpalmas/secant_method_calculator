@@ -1,2 +1,2 @@
-# POO
-Trabalhos da disciplina de Programação Orientada a Objetos
+# CN
+Trabalho da disciplina de Cálculo Numérico
