@@ -4,11 +4,6 @@ package metodosecante;
 import javax.swing.JOptionPane;
 import org.nfunk.jep.JEP;
 
-/**
- *
- * @author davi
- */
-
 public class JepExample {
     public static void main(String[] args) {
        JEP j = new JEP();

@@ -3,14 +3,6 @@ package metodosecante;
 import javax.swing.JOptionPane;
 import org.nfunk.jep.JEP;
 
-/**
- *
- * @author davi
- */
-
-/**@ param def é a função digitada como String da qual você deseja manter a raiz
-*/
-
 public class Funcao {
     JEP j = new JEP();
     public Funcao(String def) {

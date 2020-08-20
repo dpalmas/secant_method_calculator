@@ -1,6 +1,5 @@
 package metodosecante;
 
-
 import java.util.ArrayList;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
@@ -8,17 +7,9 @@ import javax.swing.JTextField;
 import org.math.plot.Plot2DPanel;
 import org.nfunk.jep.JEP;
 
-/**
- *
- * @author davi
- */
 public class SecanteGUI extends javax.swing.JFrame {
     
-   Plot2DPanel grafico = new Plot2DPanel(); /* Criação da variável "grafico" para
-fazer a chamado para o gráfico. */    
-    /**
-     * Creates new form SecanteGUI
-     */
+   Plot2DPanel grafico = new Plot2DPanel(); 
     public SecanteGUI() {
        initComponents();
        this.setLocationRelativeTo(null);

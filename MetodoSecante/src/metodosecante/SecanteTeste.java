@@ -2,11 +2,6 @@ package metodosecante;
 
 import javax.swing.JOptionPane;
 
-/**
- *
- * @author davi
- */
-
 public class SecanteTeste {
     public static void main(String[] args) {
        Funcao f = new Funcao("sin(x)*x");

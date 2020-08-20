@@ -2,15 +2,8 @@ package metodosecante;
 
 import javax.swing.ImageIcon;
 
-/**
- *
- * @author davi
- */
 public class Principal extends javax.swing.JFrame {
 
-    /**
-     * Creates new form Principal
-     */
     public Principal() {
         initComponents();
         setLocationRelativeTo(null);
