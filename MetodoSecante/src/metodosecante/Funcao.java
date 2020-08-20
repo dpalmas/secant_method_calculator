@@ -15,11 +15,6 @@ public class Funcao {
            JOptionPane.showMessageDialog(null, "Erro ao converter a função!");
         }  
     }
-    
-    /**
-     * @param x ponto no qual a função será avaliada
-     * @return retorna o valor da função avaliada no ponto x
-     */
      
     public double eval(double x){
         double r;
