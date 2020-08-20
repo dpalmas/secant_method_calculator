@@ -22,7 +22,6 @@
 Esse projeto foi desenvolvido com as seguintes tecnologias:
 
 - [Java](https://www.java.com/en/)
-- [MySQL](https://www.mysql.com/)
 
 ## :thinking: Sobre este Projeto
   
