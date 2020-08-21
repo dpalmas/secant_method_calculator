@@ -1,6 +1,5 @@
 package metodosecante;
 
-
 import javax.swing.JOptionPane;
 import org.nfunk.jep.JEP;
 
@@ -11,7 +10,7 @@ public class JepExample {
        j.addStandardFunctions();
        j.addVariable("x", 0);
        j.parseExpression("x^2/2");
-       if (j.hasError()){
+       if (j.hasError()) {
           JOptionPane.showMessageDialog(null, j.getErrorInfo());
        }
        JOptionPane.showMessageDialog(null, j.getValue());

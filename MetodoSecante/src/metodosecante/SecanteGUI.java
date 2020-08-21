@@ -53,10 +53,10 @@ public class SecanteGUI extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabelfuncao.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabelfuncao.setFont(new java.awt.Font("Tahoma", 1, 14));
         jLabelfuncao.setText("Função:");
 
-        jLabelx0.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabelx0.setFont(new java.awt.Font("Tahoma", 1, 14));
         jLabelx0.setText("X0:");
 
         jLabelx1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
@@ -289,86 +289,82 @@ public class SecanteGUI extends javax.swing.JFrame {
     }//GEN-LAST:event_sairActionPerformed
 
     private void limpardadosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_limpardadosActionPerformed
-       funcao.setText(" "); // Limpa os dados do campo Função;
-       x0.setText(" "); // Limpa os dados do campo X0;
-       x1.setText(" "); // Limpa os dados do campo X1;
-       raiz.setText(" "); // Limpa os dados do campo raiz
+       funcao.setText(" ");
+       x0.setText(" "); 
+       x1.setText(" "); 
+       raiz.setText(" "); 
     }//GEN-LAST:event_limpardadosActionPerformed
 
     private void inserirdadosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inserirdadosActionPerformed
-       panel.setEnabled(true); // Habilita o painel;
+       panel.setEnabled(true); 
        jLabelfuncao.setEnabled(true);
-       funcao.setEnabled(true); // Habilita campo para inserir uma função;
+       funcao.setEnabled(true); 
        jLabelx0.setEnabled(true);
-       x0.setEnabled(true); // Habilita campo para inserir parâmetro "x0";
+       x0.setEnabled(true); 
        jLabelx1.setEnabled(true);
-       x1.setEnabled(true); // Habilita campo para inserir parâmetro "x1";
-       calcular.setEnabled(true); // Habilita botão calcular;
-       limpardados.setEnabled(true); // Habilita botão limpar dados
+       x1.setEnabled(true); 
+       calcular.setEnabled(true); 
+       limpardados.setEnabled(true); 
     }//GEN-LAST:event_inserirdadosActionPerformed
 
     private void calcularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_calcularActionPerformed
        Secante m = new Secante();
-        m.apagarIteracoes();// nós chamamos o método que apaga todos os elementos da última iteração
+        m.apagarIteracoes();
         try {
             JEP j = new JEP();
             j.addStandardConstants();
             j.addStandardFunctions();
 
-
             String def = funcao.getText();
 
-            j.parseExpression(x0.getText());// conversão da expressão inserida no campo x0
+            j.parseExpression(x0.getText());
             double lx0 = j.getValue();
 
-            j.parseExpression(x1.getText());// conversão da expressão inserida no campo x1
+            j.parseExpression(x1.getText());
             double lx1 = j.getValue();
 
-            j.parseExpression(erro.getText());// conversão da expressão inserida no campo tolerancia
+            j.parseExpression(erro.getText());
             double tolerancia = j.getValue();
 
-            int ln = Integer.parseInt(maxiter.getText());// conversão da expressão inserida no campo de máximo de iterações
+            int ln = Integer.parseInt(maxiter.getText());
 
             Funcao f = new Funcao(def);
             Secante s = new Secante();
             double r = s.raiz(f, lx0, lx1, ln, tolerancia);
             raiz.setText(Double.toString(r));
 
-            // representação gráfica da função 
-            // Matrizes usadas para armazenar uma partição em um intervalo no qual a função digitada é definida
             double x[] = new double[200];
             double y[] = new double[200];
 
-            double xi = lx0-10;// variável usada para pontos dentro da partição
+            double xi = lx0-10;
             for (int i = 0; i < 200; i++) {
-                x[i] = xi + i * 0.1; // nós armazenamos valores xi que serão avaliados na função digitada, ou seja f (xi)
+                x[i] = xi + i * 0.1;
 
                 JEP funcionx_h = new JEP();
-                funcionx_h.addStandardFunctions(); // adiciona as funções matemáticas
-                funcionx_h.addStandardConstants(); // adiciona as constantes matemáticas
+                funcionx_h.addStandardFunctions(); 
+                funcionx_h.addStandardConstants(); 
                 funcionx_h.setImplicitMul(true);
-                funcionx_h.addVariable("x", x[i]);// nós avaliamos a função inserida no ponto xi
-                // obtém o resultado de avaliar a expressão
-                funcionx_h.parseExpression(def); // etapa da expressão a ser avaliada
-                String inde=Double.toString(funcionx_h.getValue());// variável usada para representar assíntotas no gráfico de f(x)
-                        if ( inde.equals("NaN") || inde.equals("-Infinity") || inde.equals("Infinity") ) {
-                            
-                        }else  {
-                            y[i] = funcionx_h.getValue();// nós armazenamos o valor f(xi) na matriz e
-                        }
+                funcionx_h.addVariable("x", x[i]);
+                funcionx_h.parseExpression(def); 
+                String inde=Double.toString(funcionx_h.getValue());
+                
+                if ( inde.equals("NaN") || inde.equals("-Infinity") || inde.equals("Infinity") ) {
+                    
+                }else  {
+                    y[i] = funcionx_h.getValue();
+                }
 
             }
             grafico.addLegend("SOUTH");
-            grafico.removeAllPlots(); // apagar o grafico anterior
-            grafico.addLinePlot(def, x, y);// aderimos ao gráfico o nome da função para rencontrar a raiz e os pontos que serão utilizados para obter o grafo f (x)
-
+            grafico.removeAllPlots(); 
+            grafico.addLinePlot(def, x, y);
 
             numIteracoes.setText("");
             imprimeIteracoes.setText("");
             ArrayList iteracoes = new ArrayList();
             iteracoes = Secante.getIteracoes();
-            numIteracoes.setText(Integer.toString(iteracoes.size() - 1));// mostra o número de iterações realizadas
-            // mostra todas as iterações feitas
+            numIteracoes.setText(Integer.toString(iteracoes.size() - 1));
+            
             for (int i = 1; i < iteracoes.size(); i++) {
 
                 imprimeIteracoes.append("x" + (i + 1) + "=" + iteracoes.get(i) + "\n");
@@ -388,9 +384,6 @@ public class SecanteGUI extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_maxiterActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -415,7 +408,6 @@ public class SecanteGUI extends javax.swing.JFrame {
         }
         //</editor-fold>
 
-        /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new SecanteGUI().setVisible(true);
