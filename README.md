@@ -12,20 +12,14 @@
 </p>
 
 <p align="center">
-  <a href="#rocket-tecnologias">Tecnologias</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  &nbsp;&nbsp;&nbsp;
   <a href="#thinking-sobre-este-projeto">Projeto</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="#memo-licença">Licença</a>
 </p>
-
-## :rocket: Tecnologias
-
-Esse projeto foi desenvolvido com as seguintes tecnologias:
-
-- [Java](https://www.java.com/en/)
 
 ## :thinking: Sobre este Projeto
   
 Aplicação desenvolvida durante a disciplina de Cálculo Numérico na UTFPR.
 
 ## :memo: Licença
-Este projeto está licenciado sob a licença [MIT](./LICENSE).
+[MIT](./LICENSE)
